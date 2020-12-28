@@ -1,0 +1,15 @@
+.grid-container {
+    display: grid;
+    grid-template-columns: auto auto;   
+  }
+ h1{
+    color: #337ab7;
+ } 
+ .alterar{
+     background-color: teal;
+     color: white;
+ }
+.excluir{
+    background-color: red;
+    color: white;
+}

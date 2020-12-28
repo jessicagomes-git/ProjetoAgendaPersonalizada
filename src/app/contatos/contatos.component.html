@@ -1,0 +1,64 @@
+<div class="margin-top-10 container">
+    <div class="jumbotron">
+        <h1>Agenda Personalizada</h1>
+    </div>
+    <div class="card">
+        <ul class="list-group list-group-flush">
+            <li class="list-group-item">Inserir Novo Contato</li>
+            <li class="list-group-item">
+
+                <form [formGroup]="formContatos">
+                    <div class="grid-container">
+                        <div class="mb-3">
+                            <label for="exampleInputPassword1" class="form-label">Nome</label>
+                            <input type="text" formControlName="nome" class="form-control" id="nome">
+                        </div>
+                        <div class="margin-left-10 mb-3">
+                            <label for="exampleInputEmail1" class="form-label">Telefone </label>
+                            <input type="text" formControlName="telefone" class="form-control" id="telefone">
+                        </div>
+                    </div>
+                    <div class="mb-3">
+                        <label for="exampleInputEmail1" class="form-label">Email </label>
+                        <input type="email" formControlName="email" class="form-control" id="telefone"
+                            aria-describedby="emailHelp">
+                    </div>
+                    <button type="submit" (click)="onSubmit()" [disabled]="formContatos.invalid"
+                        class="margin-top-10 btn btn-primary">Inserir</button>
+
+                </form>
+            </li>
+        </ul>
+    </div>
+
+
+
+    <div class="panel panel-primary">
+        <div class="panel-heading">Contatos</div>
+        <div class="panel-body">
+            <table class="table">
+                <thead>
+                    <tr>
+                        <th scope="col">#</th>
+                        <th scope="col">Nome</th>
+                        <th scope="col">Email</th>
+                        <th scope="col">Telefone</th>
+                        <th></th>
+
+                    </tr>
+                </thead>
+                <tbody *ngFor="let contato of contatos; index as i">
+                    <tr>
+                        <th scope="row">{{i+1}}</th>
+                        <td>{{contato.nome}}</td>
+                        <td>{{contato.email}}</td>
+                        <td>{{contato.telefone}}</td>
+                        <td>
+                            <button type="submit" (click)="excluir(i)" class="excluir btn btn-warn">Excluir</button>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
